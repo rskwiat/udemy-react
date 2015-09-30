@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Hello World</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body>
+
+<div id="container"></div>
+	
+
+</body>
+
+	<script type="text/jsx">
+	var Badge = React.createClass({
+		render: function(){
+			return <button className="btn btn-primary" type="button">
+  			{this.props.message} <span className="badge">{this.props.count}</span>
+			</button>
+		}
+	});
+
+
+	var options = {
+		message: 'Inbox',
+		count: 5
+	};
+
+	var element = React.createElement(badge, options);
+	React.render(element, document.getElementById('container'));
+
+	
+	</script>
+
+</html>
