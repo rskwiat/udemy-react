@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Hello World</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-5 target"></div>
+		</div>
+	</div>
+	
+
+</body>
+
+	<script type="text/jsx">
+	var Badge = React.createClass({
+		render: function(){
+			return <button className="btn btn-primary" type="button">
+  			{this.props.message} <span className="badge">{this.props.count}</span>
+			</button>
+		}
+	});
+
+	var Thumbnail = React.createClass({
+		render: function(){
+			return <div className="thumbnail">
+	      <img src={this.props.imageUrl} />
+	      <div className="caption">
+	        <h3>{this.props.header}</h3>
+	        <p>{this.props.description}</p>
+	        	<Badge message={this.props.message} count={this.props.count} />
+	      </div>
+	    </div>
+		}
+	});
+
+
+	var options = {
+		message: 'Inbox',
+		count: 5,
+		header: 'Learn React',
+		description: 'React is a new way to build pages.',
+		imageUrl: 'https://media.giphy.com/media/xTiTnzsx8lZV90Yb4s/giphy.gif'
+	};
+
+	var element = React.createElement(Thumbnail, options);
+	React.render(element, document.querySelector('.target'));
+
+	
+	</script>
+
+</html>

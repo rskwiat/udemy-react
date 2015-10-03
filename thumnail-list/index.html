@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Thumbnail List</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+
+	<style>
+		.flex-row{
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+ 
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+		}
+
+
+		.flex-item{
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+		}
+
+
+
+	</style>
+
+
+</head>
+<body>
+
+	<div class="container">
+		<div class="row target">
+		</div>
+	</div>
+	
+
+</body>
+
+	<script type="text/jsx">
+	var Badge = React.createClass({
+		render: function(){
+			return <button className="btn btn-primary" type="button">
+  			{this.props.message} <span className="badge">{this.props.count}</span>
+			</button>
+		}
+	});
+
+	var Thumbnail = React.createClass({
+		render: function(){
+			return <div className="col-xs-12 col-sm-6 col-md-4 flex-item">
+			 <div className="thumbnail">
+	      <img src={this.props.imageUrl} />
+	      <div className="caption">
+	        <h3>{this.props.header}</h3>
+	        <p>{this.props.description}</p>
+	        	<Badge message={this.props.message} count={this.props.count} />
+	      </div>
+	    </div>
+	    </div>
+		}
+	});
+
+	var ThumbnailList = React.createClass({
+		render: function(){
+			var list = this.props.thumbnailData.map(function(thumbnailProps){
+				return <Thumbnail {...thumbnailProps} />
+			});
+
+			return <div className="flex-row">
+				{list}
+			</div>
+		}
+	});
+
+
+	var options = {
+		thumbnailData: [{
+			message: 'Inbox',
+			count: 5,
+			header: 'Learn React',
+			description: 'React is a new way to build pages.',
+			imageUrl: 'https://media.giphy.com/media/xTiTnzsx8lZV90Yb4s/giphy.gif'
+		},{
+			message: 'Show Courses',
+			count: 25,
+			header: 'Learn Gulp',
+			description: 'Gulp is a lightweight task runner',
+			imageUrl: 'http://gaboesquivel.com/images/2014/04/gulp-js.jpg'
+		}]
+	};
+
+
+	var element = React.createElement(ThumbnailList, options);
+	React.render(element, document.querySelector('.target'));
+
+	
+	</script>
+
+</html>
