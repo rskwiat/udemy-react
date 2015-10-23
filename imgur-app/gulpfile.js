@@ -9,6 +9,8 @@ var server = require('gulp-server-livereload');
 var concat = require('gulp-concat');
 var sass = require('gulp-sass');
 var watch = require('gulp-watch');
+var uglify = require('gulp-uglify');
+
 
 var notify = function(error) {
   var message = 'In: ';
@@ -72,6 +74,12 @@ gulp.task('serve', function(done) {
     }));
 });
 
+gulp.task('compress', function() {
+  return gulp.src('main.js')
+    .pipe(uglify())
+    .pipe(gulp.dest('dist'));
+});
+
 gulp.task('sass', function () {
   gulp.src('./sass/**/*.scss')
     .pipe(sass().on('error', sass.logError))
@@ -79,7 +87,7 @@ gulp.task('sass', function () {
     .pipe(gulp.dest('./'));
 });
 
-gulp.task('default', ['build', 'serve', 'sass', 'watch']);
+gulp.task('default', ['build', 'compress', 'serve', 'sass', 'watch']);
 
 gulp.task('watch', function () {
   gulp.watch('./sass/**/*.scss', ['sass']);
