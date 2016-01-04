@@ -2,7 +2,7 @@ var React = require('react');
 var Header = require('./header');
 var TopicList = require('./topic-list');
 
-module.exports = React.createClass({
+var main = React.createClass({
   render: function() {
     return <div>
    		<Header />
@@ -17,3 +17,5 @@ module.exports = React.createClass({
   	}
   }
 });
+
+module.exports = main;

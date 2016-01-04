@@ -6,7 +6,7 @@ var CommentBox = require('./comment-box');
 var Actions = require('../actions');
 
 
-module.exports = React.createClass({
+var imageDetail = React.createClass({
 	mixins:[
 		Reflux.listenTo(ImageStore, 'onChange'),
 		Reflux.listenTo(CommentStore, 'onChange')
@@ -63,3 +63,6 @@ module.exports = React.createClass({
 		})
 	}
 });
+
+
+module.exports = imageDetail;

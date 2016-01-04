@@ -6,7 +6,7 @@ var ReactRouter = require('react-router');
 var ImagePreview = require('./ImagePreview');
 var Link = ReactRouter.Link;
 
-module.exports = React.createClass({
+var topic = React.createClass({
 	mixins:[
 		Reflux.listenTo(ImageStore, 'onChange')
 	],
@@ -35,3 +35,5 @@ module.exports = React.createClass({
 		this.setState({images: images})
 	}
 });
+
+module.exports = topic;

@@ -2,7 +2,7 @@ var React = require('react');
 var ReactRouter = require('react-router');
 var Link = ReactRouter.Link;
 
-module.exports = React.createClass({
+var preview = React.createClass({
 	getInitialState: function(){
 		return{
 			hovering: false
@@ -47,3 +47,5 @@ module.exports = React.createClass({
 		this.setState({ hovering: true });
 	},
 });
+
+module.exports = preview;

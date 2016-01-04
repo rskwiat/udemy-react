@@ -5,7 +5,7 @@ var Actions = require('../actions');
 var TopicStore = require('../stores/topic-stores');
 var Reflux = require('reflux');
 
-module.exports = React.createClass({
+var header = React.createClass({
   mixins:[
     Reflux.listenTo(TopicStore, 'onChange')
   ],
@@ -42,3 +42,6 @@ module.exports = React.createClass({
     });
   }
 });
+
+
+module.exports = header;

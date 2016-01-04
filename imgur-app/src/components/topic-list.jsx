@@ -5,7 +5,7 @@ var Actions = require('../actions');
 var ReactRouter = require('react-router');
 var Link = ReactRouter.Link;
 
-module.exports = React.createClass({
+var topicList = React.createClass({
 	mixins:[
 		Reflux.listenTo(TopicStore, 'onChange')
 	],
@@ -34,3 +34,5 @@ module.exports = React.createClass({
 		this.setState({topics: topics })
 	}
 });
+
+module.exports = topicList;

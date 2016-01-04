@@ -1,6 +1,6 @@
 var React = require('react');
 
-module.exports = React.createClass({
+var comments = React.createClass({
   render: function(){
     return <ul className="list-group">
       {this.renderComments()}
@@ -16,3 +16,5 @@ module.exports = React.createClass({
     })
   }
 });
+
+module.exports = comments;
